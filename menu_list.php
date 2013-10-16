@@ -3,6 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Sorting Items on the fly using jQuery UI, PHP & MySQL</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
 <script type="text/javascript" src="js/jquery-1.9.1.js"></script>
 <script type="text/javascript" src="js/jquery-ui-1.10.3.custom.min.js"></script>
 <script>
@@ -45,7 +46,7 @@ mysql_select_db($db_name) or die ('Cant select Database');
 // Getting menu items from DB
 $result = mysql_query("SELECT * FROM `menu` ORDER BY `sort` ASC") or die(mysql_error());
 while($row = mysql_fetch_array($result)) {
-echo '<li id="menu_' . $row['id'] . '">' . $row['story_id'] . ' - ' . $row['story'] . "</li>\n";
+echo '<li id="menu_' . $row['id'] . '">' . '<span class="badge">' . $row['story_id'] . '</span> - ' . $row['story'] . "</li>\n";
 }
 ?>
 </ul>
