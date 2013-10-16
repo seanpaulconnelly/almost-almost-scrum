@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -26,11 +26,17 @@ alert("theres an error with AJAX");
 </script>
 </head>
 <body>
-<h1>Menu List</h1>
+<h1>almost almost scrum story reorderer</h1>
+<h3>drag &amp; drop stories:</h3>
 
 <ul id="sortme">
 <?php
 // Connecting to Database
+
+$hostname = 'localhost';
+$user_name = 'root';
+$password = 'root';
+$db_name = 'aas';
 mysql_connect($hostname, $user_name, $password) or die ('Cant Connceto to MySQL');
 
 // Selecting Database
@@ -39,7 +45,7 @@ mysql_select_db($db_name) or die ('Cant select Database');
 // Getting menu items from DB
 $result = mysql_query("SELECT * FROM `menu` ORDER BY `sort` ASC") or die(mysql_error());
 while($row = mysql_fetch_array($result)) {
-echo '<li id="menu_' . $row['id'] . '">' . $row['title_en'] . "</li>\n";
+echo '<li id="menu_' . $row['id'] . '">' . $row['story_id'] . ' - ' . $row['story'] . "</li>\n";
 }
 ?>
 </ul>

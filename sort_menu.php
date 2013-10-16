@@ -1,4 +1,5 @@
 <?php
+
 // Connecting to Database
 mysql_connect($hostname, $user_name, $password) or die ('Cant Connceto to MySQL');
 
